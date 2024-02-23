@@ -35,7 +35,7 @@ class DataTransformation:
 
             num_pipeline= Pipeline(
                 steps=[
-                ("imputer",SimpleImputer(strategy="median")),
+                    ('imputer',SimpleImputer(strategy='median')),
                 ("scaler",StandardScaler())
 
                 ]
@@ -44,9 +44,9 @@ class DataTransformation:
             cat_pipeline=Pipeline(
 
                 steps=[
-                ("imputer",SimpleImputer(strategy="most_frequent")),
+                    ('imputer',SimpleImputer(strategy='most_frequent')),
                 ("one_hot_encoder",OneHotEncoder()),
-                ("scaler",StandardScaler(with_mean=False))
+                ("scaler",StandardScaler())
                 ]
 
             )
@@ -80,6 +80,7 @@ class DataTransformation:
             logging.info("Obtaining preprocessing object")
 
             preprocessing_obj=self.get_data_transformer_object()
+
 
             target_column_name="Calories"
             numerical_columns = ["Age","Height","Weight","Duration",
