@@ -1,55 +1,61 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Fitness Data Tracker</title>
-</head>
-<body>
-    <div class="fitness-tracker">
-        <h1>Fitness Data Tracker</h1>
+  <head>
+    <title>Calories Burnt Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <a href="https://github.com/nitish099/Calories-Burnt-Prediction" class="top-left-link" target="_blank">GitHub Repository Link</a>
+    <h1>Calories Burnt Prediction - Nitish Sharma</h1>
+    <img src="{{url_for('static', filename='/image/IMG20240110141431.jpg')}}" alt="Your Profile Picture" class="profile">
+    <div class="form-box">
+    <form action="{{url_for('predict_datapoint')}}" method="POST">
+        
+        <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select id="Gender" name="Gender">
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
+          </div>
+    
+        <div class="form-group">
+            <label for="Age">Age</label>
+            <input type="text" id="Age" name="Age" placeholder="enter age value">
+        </div>
 
-        <form action="{{ url_for('predict_datapoint')}}" method="post">
-            <h1>
-                <legend>Fitness Data Entry</legend>
-            </h1>
-            <div class="mb-3">
-                <label class="form-label">Gender</label>
-                <select class="form-control" name="gender" required>
-                    <option class="placeholder" selected disabled value="">Select your Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Age</label>
-                <input class="form-control" type="number" name="age" placeholder="Enter your Age" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Height</label>
-                <input class="form-control" type="number" step="0.01" name="height" placeholder="Enter your Height" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Weight</label>
-                <input class="form-control" type="number" step="0.01" name="weight" placeholder="Enter your Weight" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Duration</label>
-                <input class="form-control" type="number" step="0.01" name="duration" placeholder="Enter the Duration" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Heart_Rate</label>
-                <input class="form-control" type="number" step="0.01" name="heart_rate" placeholder="Enter your Heart Rate" required />
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Body_Temp</label>
-                <input class="form-control" type="number" step="0.01" name="body_temp" placeholder="Enter your Body Temperature" required />
-            </div>
-            <div class="mb-3">
-                <input class="btn btn-primary" type="submit" value="Track Fitness Data" />
-            </div>
-        </form>
-
-        <h2>
-            The tracked fitness data is {{results}}
-        </h2>
+        <div class="form-group">  
+            <label for="Height">Height</label>
+            <input type="text" id="Height" name="Height" placeholder="enter height value">
+        </div>
+        
+        <div class="form-group">
+            <label for="Weight">Weight</label>
+            <input type="text" id="Weight" name="Weight" placeholder="enter weight value">
+        </div>
+      
+        <div class="form-group">
+            <label for="Duration">Duration</label>
+            <input type="text" id="Duration" name="Duration" placeholder="enter duration value">
+        </div>
+      
+        <div class="form-group">
+            <label for="Heart_Rate">Heart_Rate</label>
+            <input type="text" id="Heart_Rate" name="Heart_Rate" placeholder="enter heart rate value">
+        </div>         
+      
+        <div class="form-group">
+            <label for="Body_Temp">Body_Temp</label>
+            <input type="text" id="Body_Temp" name="Body_Temp" placeholder="enter body temp value">
+        </div>  
+    
+    <div style="clear:both;"></div>
+      <input type="submit" value="Submit">
+    </form>
     </div>
-</body>
+    <div>      
+    <h2>
+      Predicted Calories Burnt is : {{ results }}
+    </h2>
+  </body>
 </html>
