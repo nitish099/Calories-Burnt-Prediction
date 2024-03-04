@@ -1,2 +1,2 @@
 ## This is end to end machine learning project to predict the number of calories a person has burnt during a workout based on some biological measures....
-Variables:  Gender,	Age,	Height,	Weight,	Duration,	Heart_Rate,	Body_Temp, Calories
+Features :  user_id, Gender,	Age,	Height,	Weight,	Duration,	Heart_Rate,	Body_Temp, Calories
